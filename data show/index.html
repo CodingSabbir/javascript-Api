@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+<body>
+    <h1>Learn Api</h1>
+    <h5 id="demo"></h5>
+  
+
+    <script>
+        // async function doSomething(){
+        //  const response=await fetch('http://www.boredapi.com/api/activity/')
+        //  const data=await response.json()
+        //  showData(data)
+        // }
+        // doSomething()
+
+        // function showData(info){
+        //     const displayData=document.getElementById('demo')
+        //     displayData.innerText=info.activity
+        // }
+        
+
+
+       function displayData(){
+        fetch('http://www.boredapi.com/api/activity/')
+        .then(res => res.json())
+        .then(data =>{
+            document.getElementById('demo').innerText=data.activity 
+        })
+       }
+       displayData()
+
+       setInterval(() => {
+        displayData()
+       }, 1000);
+
+
+    </script>
+</body>
+</html>

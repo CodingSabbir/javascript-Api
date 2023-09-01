@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>User Name</h3>
+    <p id="showData"></p>
+    
+    <script>
+       function displayShow(){
+        fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data =>{
+            const userData=data.results[0]
+            const userName=userData.name
+            const fullName=`${userName.title} ${userName.first} ${userName.last}`
+           document.getElementById('showData').innerText=fullName
+        })
+       }
+       displayShow()
+
+       setInterval(() => {
+        displayShow()
+       }, 1000);
+    </script>
+</body>
+</html>
